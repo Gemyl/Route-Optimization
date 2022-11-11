@@ -10,7 +10,7 @@
 #### A set of loading points' coordinates and their cargo units in two different days is given in .xlsx file.
 
 ## Python Code
-#### The development of a Python code has been decided to find both the minimum number of routes and the minimum length of those and plot them in Herklion's map figure. The algorithm that was used to find the optimum routes is Dijkstra's Algorithm. The packages that have been used are enlisted below,
+#### Python code has been developed to find both the minimum number of routes and the minimum length of those and plot them in Herklion's map figure. The algorithm that was used to find the optimum routes is Dijkstra's Algorithm. The packages that have been used are enlisted below,
 
 ### 1. openrouteservice
 ### 2. openstreetmap
