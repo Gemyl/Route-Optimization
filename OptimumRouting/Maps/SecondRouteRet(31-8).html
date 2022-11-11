@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_561c5ea25a4a32c2e282f2c2080c86fd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_561c5ea25a4a32c2e282f2c2080c86fd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_561c5ea25a4a32c2e282f2c2080c86fd = L.map(
+                "map_561c5ea25a4a32c2e282f2c2080c86fd",
+                {
+                    center: [35.3387, 25.1442],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+
+            
+
+        
+    
+            var tile_layer_447335c01f0f796a5fdb6342238fa03a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+
+        function geo_json_407b4de98588d1575a146097fc94ac42_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_407b4de98588d1575a146097fc94ac42 = L.geoJson(null, {
+                onEachFeature: geo_json_407b4de98588d1575a146097fc94ac42_onEachFeature,
+            
+        });
+
+        function geo_json_407b4de98588d1575a146097fc94ac42_add (data) {
+            geo_json_407b4de98588d1575a146097fc94ac42
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_407b4de98588d1575a146097fc94ac42_add({"coordinates": [[25.14112, 35.32607], [25.14068, 35.3262], [25.14047, 35.32627], [25.14023, 35.32631], [25.14018, 35.32631], [25.14013, 35.3263], [25.14006, 35.32628], [25.13978, 35.32611], [25.13951, 35.32595], [25.13943, 35.326], [25.13931, 35.32611], [25.13922, 35.32619], [25.1392, 35.32622], [25.13911, 35.32632], [25.13908, 35.32635], [25.13901, 35.32642], [25.13895, 35.32646], [25.13894, 35.32646], [25.13892, 35.32651], [25.13889, 35.32656], [25.13883, 35.32668], [25.13882, 35.32672], [25.13879, 35.32678], [25.13872, 35.32688], [25.13866, 35.32694], [25.13863, 35.32696], [25.13857, 35.32696], [25.13852, 35.32695], [25.13848, 35.32695], [25.13844, 35.32694], [25.13842, 35.32693], [25.1384, 35.32693], [25.13842, 35.32687], [25.13869, 35.32638], [25.13879, 35.32621], [25.13886, 35.32608], [25.13888, 35.32605], [25.13892, 35.32598], [25.13898, 35.32586], [25.13901, 35.32577], [25.1391, 35.32562], [25.13976, 35.32476], [25.13992, 35.32455], [25.13958, 35.32448], [25.13912, 35.3244], [25.13904, 35.32439], [25.13907, 35.32429], [25.13912, 35.3241], [25.13924, 35.32357], [25.13937, 35.32311], [25.13947, 35.32273], [25.13957, 35.32243], [25.1396, 35.32232], [25.13971, 35.32202], [25.13977, 35.32182], [25.13964, 35.32177], [25.13939, 35.32167], [25.13906, 35.32157], [25.13873, 35.32154], [25.13863, 35.32154], [25.13856, 35.32155], [25.13834, 35.32157], [25.13769, 35.32165], [25.13716, 35.32174], [25.13716, 35.3212], [25.13716, 35.32105]], "type": "LineString"});
+
+        
+    
+            var marker_0bab24aa3c9c837e2ba0c73ef17d1d66 = L.marker(
+                [35.32613, 25.141145],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_0bab24aa3c9c837e2ba0c73ef17d1d66.bindTooltip(
+                `<div>
+                     Load Point #1 | ID: 8
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_f06b536ba1aba0d772e37d5e0a87b2c9_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_f06b536ba1aba0d772e37d5e0a87b2c9 = L.geoJson(null, {
+                onEachFeature: geo_json_f06b536ba1aba0d772e37d5e0a87b2c9_onEachFeature,
+            
+        });
+
+        function geo_json_f06b536ba1aba0d772e37d5e0a87b2c9_add (data) {
+            geo_json_f06b536ba1aba0d772e37d5e0a87b2c9
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_f06b536ba1aba0d772e37d5e0a87b2c9_add({"coordinates": [[25.13716, 35.32105], [25.13716, 35.3212], [25.13716, 35.32174], [25.13695, 35.32178], [25.13653, 35.32186], [25.13642, 35.32189], [25.13581, 35.322], [25.13571, 35.32202], [25.13564, 35.32203], [25.13556, 35.32204], [25.13534, 35.32205], [25.13508, 35.32207], [25.13482, 35.32209], [25.1348, 35.32209], [25.13447, 35.3221], [25.13417, 35.32213], [25.134, 35.32213], [25.13363, 35.32215], [25.13324, 35.32215], [25.13327, 35.32253], [25.13334, 35.32335], [25.13337, 35.32378], [25.13337, 35.32379]], "type": "LineString"});
+
+        
+    
+            var marker_d44d655dba2a0426fdf6df0fdc959f36 = L.marker(
+                [35.321053, 25.137196],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_d44d655dba2a0426fdf6df0fdc959f36.bindTooltip(
+                `<div>
+                     Load Point #2 | ID: 6
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_d0d6093924eee6a3b4becec2846ed64d_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_d0d6093924eee6a3b4becec2846ed64d = L.geoJson(null, {
+                onEachFeature: geo_json_d0d6093924eee6a3b4becec2846ed64d_onEachFeature,
+            
+        });
+
+        function geo_json_d0d6093924eee6a3b4becec2846ed64d_add (data) {
+            geo_json_d0d6093924eee6a3b4becec2846ed64d
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_d0d6093924eee6a3b4becec2846ed64d_add({"coordinates": [[25.13337, 35.32379], [25.13339, 35.32397], [25.13344, 35.32427], [25.13354, 35.32472], [25.13354, 35.32476], [25.13354, 35.3248], [25.13355, 35.32528], [25.13356, 35.32563], [25.13365, 35.32648], [25.1337, 35.32665], [25.13382, 35.32706], [25.13387, 35.3272], [25.1339, 35.3273], [25.13393, 35.32738], [25.13386, 35.32736], [25.13372, 35.32731], [25.13334, 35.32717], [25.13272, 35.32695], [25.13268, 35.32694], [25.13258, 35.3269], [25.13247, 35.32686], [25.13232, 35.32683], [25.13216, 35.32684], [25.13213, 35.32684], [25.1321, 35.32684], [25.13204, 35.32684], [25.13188, 35.32686], [25.13182, 35.32686], [25.13109, 35.32693], [25.13074, 35.32696]], "type": "LineString"});
+
+        
+    
+            var marker_e29acf50c0145f8f7108844f3aa6d1c9 = L.marker(
+                [35.323785, 25.133399],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_e29acf50c0145f8f7108844f3aa6d1c9.bindTooltip(
+                `<div>
+                     Load Point #3 | ID: 11
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_ebaef64b77bf163de10657679b04da9a_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_ebaef64b77bf163de10657679b04da9a = L.geoJson(null, {
+                onEachFeature: geo_json_ebaef64b77bf163de10657679b04da9a_onEachFeature,
+            
+        });
+
+        function geo_json_ebaef64b77bf163de10657679b04da9a_add (data) {
+            geo_json_ebaef64b77bf163de10657679b04da9a
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_ebaef64b77bf163de10657679b04da9a_add({"coordinates": [[25.13074, 35.32696], [25.13071, 35.32697], [25.13065, 35.32697], [25.13057, 35.32698], [25.13051, 35.32698], [25.13019, 35.32701], [25.13007, 35.32703], [25.12955, 35.32708], [25.12907, 35.32714], [25.12873, 35.32717], [25.1287, 35.32718], [25.12847, 35.3272], [25.12788, 35.32727], [25.12772, 35.3273], [25.12763, 35.32736], [25.12761, 35.32738], [25.12754, 35.32735], [25.12751, 35.32734], [25.12731, 35.32726], [25.12712, 35.32719], [25.12638, 35.32694], [25.12625, 35.3269], [25.12544, 35.32658], [25.1255, 35.32649], [25.12552, 35.32638], [25.12554, 35.32582], [25.12554, 35.32582]], "type": "LineString"});
+
+        
+    
+            var marker_0a9c2f7b56d8ee77196067e8029c1775 = L.marker(
+                [35.326936, 25.130738],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_0a9c2f7b56d8ee77196067e8029c1775.bindTooltip(
+                `<div>
+                     Load Point #4 | ID: 1
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_66733988763e5f754a519d746d27b0a5_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_66733988763e5f754a519d746d27b0a5 = L.geoJson(null, {
+                onEachFeature: geo_json_66733988763e5f754a519d746d27b0a5_onEachFeature,
+            
+        });
+
+        function geo_json_66733988763e5f754a519d746d27b0a5_add (data) {
+            geo_json_66733988763e5f754a519d746d27b0a5
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_66733988763e5f754a519d746d27b0a5_add({"coordinates": [[25.12554, 35.32582], [25.12554, 35.32578], [25.12487, 35.32595], [25.12449, 35.32606], [25.1244, 35.3261], [25.12438, 35.32612], [25.12431, 35.3261], [25.12417, 35.32606], [25.12375, 35.32602], [25.12364, 35.32601], [25.12363, 35.32606], [25.1236, 35.32614], [25.12323, 35.32669], [25.12362, 35.32683], [25.12392, 35.32692], [25.12432, 35.32696], [25.1244, 35.32697], [25.12456, 35.32699]], "type": "LineString"});
+
+        
+    
+            var marker_952008e6cd5f6e1a70e5e5be8c94a759 = L.marker(
+                [35.325815, 25.125567],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_952008e6cd5f6e1a70e5e5be8c94a759.bindTooltip(
+                `<div>
+                     Load Point #5 | ID: 3
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_001b9f5b437d8312db28b22ed5b83a3c_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_001b9f5b437d8312db28b22ed5b83a3c = L.geoJson(null, {
+                onEachFeature: geo_json_001b9f5b437d8312db28b22ed5b83a3c_onEachFeature,
+            
+        });
+
+        function geo_json_001b9f5b437d8312db28b22ed5b83a3c_add (data) {
+            geo_json_001b9f5b437d8312db28b22ed5b83a3c
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_001b9f5b437d8312db28b22ed5b83a3c_add({"coordinates": [[25.12456, 35.32699], [25.12545, 35.32707], [25.12613, 35.32713], [25.12628, 35.32713], [25.12603, 35.3277], [25.12587, 35.32768], [25.12458, 35.32757], [25.12443, 35.32756], [25.1244, 35.32697], [25.12436, 35.32661], [25.12434, 35.32626], [25.12437, 35.32614], [25.12438, 35.32612], [25.12431, 35.3261], [25.12417, 35.32606], [25.12375, 35.32602], [25.12364, 35.32601], [25.12355, 35.326], [25.12356, 35.32582], [25.12356, 35.32576], [25.12359, 35.32572], [25.12363, 35.32569], [25.1236, 35.32564], [25.1235, 35.32549], [25.12349, 35.32536], [25.1235, 35.32494], [25.12355, 35.32449], [25.12353, 35.32439], [25.12346, 35.3243], [25.12342, 35.32427], [25.1234, 35.32426], [25.12324, 35.32419], [25.12292, 35.32411], [25.12276, 35.32408], [25.1226, 35.32405], [25.12245, 35.324], [25.12235, 35.32393]], "type": "LineString"});
+
+        
+    
+            var marker_fab8981546a9c46e3a16a67ab980abce = L.marker(
+                [35.327006, 25.124558],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_fab8981546a9c46e3a16a67ab980abce.bindTooltip(
+                `<div>
+                     Load Point #6 | ID: 10
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_0273f16958f622f6c91e2c65560668e5_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_0273f16958f622f6c91e2c65560668e5 = L.geoJson(null, {
+                onEachFeature: geo_json_0273f16958f622f6c91e2c65560668e5_onEachFeature,
+            
+        });
+
+        function geo_json_0273f16958f622f6c91e2c65560668e5_add (data) {
+            geo_json_0273f16958f622f6c91e2c65560668e5
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_0273f16958f622f6c91e2c65560668e5_add({"coordinates": [[25.12235, 35.32393], [25.12233, 35.32391], [25.12228, 35.32383], [25.12226, 35.32374], [25.12228, 35.32365], [25.12229, 35.32363], [25.12231, 35.32362], [25.12275, 35.32329], [25.12289, 35.3232], [25.12305, 35.32313], [25.12363, 35.32294], [25.12371, 35.32292], [25.1239, 35.32286], [25.12418, 35.32276], [25.12449, 35.32263], [25.12462, 35.32258], [25.12494, 35.32247]], "type": "LineString"});
+
+        
+    
+            var marker_f8688c29f0de676adf5b7a22fc6f3454 = L.marker(
+                [35.323907, 25.12237],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_f8688c29f0de676adf5b7a22fc6f3454.bindTooltip(
+                `<div>
+                     Load Point #7 | ID: 5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_deebd663c529eff6ace8147300504264_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_deebd663c529eff6ace8147300504264 = L.geoJson(null, {
+                onEachFeature: geo_json_deebd663c529eff6ace8147300504264_onEachFeature,
+            
+        });
+
+        function geo_json_deebd663c529eff6ace8147300504264_add (data) {
+            geo_json_deebd663c529eff6ace8147300504264
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_deebd663c529eff6ace8147300504264_add({"coordinates": [[25.12494, 35.32247], [25.12518, 35.32239], [25.12549, 35.32228], [25.12618, 35.32205], [25.12643, 35.32196], [25.12662, 35.3219], [25.12688, 35.3218], [25.12698, 35.32176], [25.12703, 35.32176], [25.12706, 35.32176], [25.1271, 35.32177], [25.12715, 35.32181], [25.12748, 35.32212], [25.12775, 35.32239], [25.12778, 35.32241], [25.12781, 35.32243], [25.12797, 35.3225], [25.12816, 35.32257], [25.12821, 35.32258], [25.12843, 35.32258], [25.12881, 35.32257], [25.12879, 35.32252], [25.12877, 35.32251], [25.12872, 35.32247], [25.12861, 35.32233], [25.12849, 35.32214], [25.12782, 35.32164], [25.12769, 35.32154], [25.12743, 35.32131], [25.12726, 35.32108], [25.12721, 35.321], [25.1272, 35.32096], [25.12719, 35.32093], [25.12719, 35.32091], [25.12671, 35.32098], [25.12633, 35.32104], [25.12619, 35.32107], [25.12612, 35.32108], [25.12595, 35.32056], [25.1259, 35.32039], [25.12588, 35.3203], [25.12586, 35.32022], [25.12578, 35.31993], [25.12562, 35.31939], [25.12546, 35.3195]], "type": "LineString"});
+
+        
+    
+            var marker_2e8739e6fd13d86986454b56d063d872 = L.marker(
+                [35.322471, 25.124944],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_2e8739e6fd13d86986454b56d063d872.bindTooltip(
+                `<div>
+                     Load Point #8 | ID: 7
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_834fb3997fbae743b216c4ec44806f38_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_834fb3997fbae743b216c4ec44806f38 = L.geoJson(null, {
+                onEachFeature: geo_json_834fb3997fbae743b216c4ec44806f38_onEachFeature,
+            
+        });
+
+        function geo_json_834fb3997fbae743b216c4ec44806f38_add (data) {
+            geo_json_834fb3997fbae743b216c4ec44806f38
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_834fb3997fbae743b216c4ec44806f38_add({"coordinates": [[25.12546, 35.3195], [25.12532, 35.31959], [25.12468, 35.31998], [25.12445, 35.32008], [25.12413, 35.32022], [25.12448, 35.32071], [25.12391, 35.32098], [25.12323, 35.32127], [25.12285, 35.32142], [25.12334, 35.32183], [25.12371, 35.3216]], "type": "LineString"});
+
+        
+    
+            var marker_536c571a6a9d9fe4b5af3c1433d774ad = L.marker(
+                [35.319478, 25.125438],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_536c571a6a9d9fe4b5af3c1433d774ad.bindTooltip(
+                `<div>
+                     Load Point #9 | ID: 13
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+
+        function geo_json_48d3597af54fd4e0bf7e00bbef1ef364_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_48d3597af54fd4e0bf7e00bbef1ef364 = L.geoJson(null, {
+                onEachFeature: geo_json_48d3597af54fd4e0bf7e00bbef1ef364_onEachFeature,
+            
+        });
+
+        function geo_json_48d3597af54fd4e0bf7e00bbef1ef364_add (data) {
+            geo_json_48d3597af54fd4e0bf7e00bbef1ef364
+                .addData(data)
+                .addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        }
+            geo_json_48d3597af54fd4e0bf7e00bbef1ef364_add({"coordinates": [[25.12371, 35.3216], [25.12334, 35.32183], [25.12285, 35.32142], [25.12323, 35.32127], [25.12391, 35.32098], [25.12448, 35.32071], [25.12464, 35.32065], [25.12513, 35.3205], [25.12525, 35.32047], [25.12549, 35.32041], [25.1256, 35.32037], [25.12588, 35.3203], [25.12612, 35.32024], [25.12649, 35.32015], [25.12679, 35.32008], [25.12708, 35.32001], [25.12693, 35.31947], [25.12704, 35.31945], [25.1272, 35.3194], [25.12726, 35.31936], [25.1275, 35.31911], [25.12768, 35.31924], [25.12773, 35.31925], [25.12776, 35.31924], [25.12795, 35.31907], [25.12802, 35.31904], [25.12817, 35.31897], [25.12836, 35.31892], [25.12882, 35.31881], [25.12888, 35.31883], [25.12894, 35.31884], [25.12936, 35.3189], [25.12968, 35.31896], [25.12988, 35.319], [25.13031, 35.31908], [25.1305, 35.31908], [25.13052, 35.31906], [25.1306, 35.31909], [25.13087, 35.31915], [25.13254, 35.31929], [25.13258, 35.3193], [25.1326, 35.31933], [25.13266, 35.31949], [25.13286, 35.31947], [25.13299, 35.31948], [25.13306, 35.31979], [25.1331, 35.32005], [25.13312, 35.32024], [25.13316, 35.32064], [25.13318, 35.32096], [25.13319, 35.32114], [25.1332, 35.32132], [25.13322, 35.32174], [25.13323, 35.32196], [25.13324, 35.32215], [25.13327, 35.32253], [25.13334, 35.32335], [25.13337, 35.32378], [25.13339, 35.32397], [25.13344, 35.32427], [25.13354, 35.32472], [25.13326, 35.3247], [25.13321, 35.3247]], "type": "LineString"});
+
+        
+    
+            var marker_99857fcaaf7cb56ddeb6aa0292c6fcfd = L.marker(
+                [35.321596, 25.1237],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_99857fcaaf7cb56ddeb6aa0292c6fcfd.bindTooltip(
+                `<div>
+                     Load Point #10 | ID: 14
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_369a12ced6f4c880ae003b9aa8173376 = L.marker(
+                [35.324662, 25.133215],
+                {}
+            ).addTo(map_561c5ea25a4a32c2e282f2c2080c86fd);
+        
+    
+            marker_369a12ced6f4c880ae003b9aa8173376.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

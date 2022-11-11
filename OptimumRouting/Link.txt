@@ -1,0 +1,13 @@
+Links:
+
+Finding all combinations in a set of numbers:
+https://stackoverflow.com/questions/34517540/find-all-combinations-of-a-list-of-numbers-with-a-given-sum
+
+Folium Documentation:
+https://python-visualization.github.io/folium/modules.html
+
+Calculating the length of the shortest driving path between two nodes:
+https://stackoverflow.com/questions/55162077/how-to-get-the-driving-distance-between-two-geographical-coordinates-using-pytho
+
+Plotting a driving route between two points:
+https://medium.com/analytics-vidhya/measure-driving-distance-time-and-plot-routes-between-two-geographical-locations-using-python-39995dfea7e
