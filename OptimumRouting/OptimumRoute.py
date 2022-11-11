@@ -201,7 +201,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
 
 
 ############# LOADING DATA #############
-excel = pd.read_excel('Optisol.io/Interview_Programmers_Optisolio.xlsx')
+excel = pd.read_excel('OptimumRouting/Interview_Programmers_Optisolio.xlsx')
 IDs = excel['ID'].tolist()
 Latitude = excel['Latitude'].tolist()
 Longitude = excel['Longitude'].tolist()
