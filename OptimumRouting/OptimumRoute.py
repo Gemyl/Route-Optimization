@@ -201,7 +201,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
 
 
 ############# LOADING DATA #############
-excel = pd.read_excel('OptimumRouting/Interview_Programmers_Optisolio.xlsx')
+excel = pd.read_excel('Interview_Programmers_Optisolio.xlsx')
 IDs = excel['ID'].tolist()
 Latitude = excel['Latitude'].tolist()
 Longitude = excel['Longitude'].tolist()
@@ -311,18 +311,18 @@ ThirdRoute_79Ret = FindShortestPath(Distances = DistMat, Routes = [ThirdRoute_79
 
 ######### ROUTE PLOTTING ###########
 # Routes of 31/8:
-PlotRoutes(Route = FirstRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/FirstRoute(31-8).html')
-PlotRoutes(Route = FirstRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/FirstRouteRet(31-8).html')
-PlotRoutes(Route = SecondRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/SecondRoute(31-8).html')
-PlotRoutes(Route = SecondRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/SecondRouteRet(31-8).html')
+PlotRoutes(Route = FirstRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRoute(31-8).html')
+PlotRoutes(Route = FirstRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRouteRet(31-8).html')
+PlotRoutes(Route = SecondRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRoute(31-8).html')
+PlotRoutes(Route = SecondRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRouteRet(31-8).html')
 
 # Routes of 7/9:
-PlotRoutes(Route = FirstRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/FirstRoute(7-9).html')
-PlotRoutes(Route = FirstRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/FirstRouteRet(7-9).html')
-PlotRoutes(Route = SecondRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/SecondRoute(7-9).html')
-PlotRoutes(Route = SecondRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/SecondRouteRet(7-9).html')
-PlotRoutes(Route = ThirdRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/ThirdRoute(7-9).html')
-PlotRoutes(Route = ThirdRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/ThirdRouteRet(7-9).html')
+PlotRoutes(Route = FirstRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRoute(7-9).html')
+PlotRoutes(Route = FirstRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRouteRet(7-9).html')
+PlotRoutes(Route = SecondRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRoute(7-9).html')
+PlotRoutes(Route = SecondRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRouteRet(7-9).html')
+PlotRoutes(Route = ThirdRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/ThirdRoute(7-9).html')
+PlotRoutes(Route = ThirdRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/ThirdRouteRet(7-9).html')
 ######################################
 
 # WARNING: OpenRouteService API Client often applies rate limitation in requesting procces.
