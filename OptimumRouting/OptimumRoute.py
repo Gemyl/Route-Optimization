@@ -81,7 +81,7 @@ def FindShortestPath(Distances, Routes, Return):
             # In return scenario, depot (with a hypothetical ID 16) is the destination.
             # So, it is removed from the list to be placed eventually last.
             RouteCpy.remove(16)
-            # Additionaly, the new origin is original route's destination. 
+            # Additionally, the new origin is original route's destination. 
             Start = RouteCpy[len(RouteCpy)-1]
             # So, this origin is substracted from the nodes lits ('RouteCpy' list),
             # because its position has been already found in the new path (1st).
@@ -326,6 +326,6 @@ PlotRoutes(Route = ThirdRoute_79Ret, Longitude = Longitude, Latitude = Latitude,
 ######################################
 
 # WARNING: OpenRouteService API Client often applies rate limitation in requesting procces.
-# To avoid this condition, 3 or 4 routes were plottes each time (by putting the rest in sections).
+# To avoid this condition, 3 or 4 routes were plotted each time (by putting the rest in comment sections).
 
 ########### END OF SCRIPT ############
