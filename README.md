@@ -52,7 +52,7 @@ pip install networkx
 ### 5. folium
 `folium` package provides its users with the posibility of manipulating and visualizing data with the utilization of `leaflet.js` library's mapping dynamics. For package's documentation, click [here](https://python-visualization.github.io/folium/#:~:text=folium%20makes%20it%20easy%20to,as%20markers%20on%20the%20map.).
 
-Installation using  `pip:
+Installation using  `pip`:
 ```
 pip install folium
 ```
@@ -77,4 +77,4 @@ pip install numpy
 
 
 ## Results
-The optimum routes for the gathering and the loading of cargo units for two different days is presented in `html` archives in **OptimumRouting/Maps** folder. The two out of four map plots refer to the original (depot to load points) and returning (load points to depot) route on 31/8 and the rest of them on 7/9.
+The optimum routes for the gathering and the loading of cargo units for two different days is presented in `html` archives in **Maps** folder. The two out of four map plots refer to routes (original and returning) on 31/8 and the rest of them to the corresponding routes on 7/9.
