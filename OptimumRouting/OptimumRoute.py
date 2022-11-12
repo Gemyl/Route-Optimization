@@ -24,6 +24,7 @@ def removeNaN(list):
 
     return(New_list) 
 
+
 # Function that finds cargo points given load point's ID.
 def FindCargoUnits(CargoUnits, LoadPointsIDs):
     
@@ -32,6 +33,7 @@ def FindCargoUnits(CargoUnits, LoadPointsIDs):
         res.append(CargoUnits[LoadPointsIDs[i]-1])
 
     return res
+
 
 # Function that finds all possible routes for the maximum cargo availability.
 def FindRoutes(PointsIDs, LoadPoints):
@@ -55,11 +57,14 @@ def FindRoutes(PointsIDs, LoadPoints):
     
     return Routes
 
-# Function that finds the shortest path.
-def FindShortestPath(Distances, Routes, Return):
 
-    # In MinRoute the shortest in terms of length route will be eventually stored.
+# Function that finds the shortest path.
+def FindShortestPath(Distances, Routes, RemainRoutes, TotalRoutes):
+
+    # In MinRoute the shortest in terms of length original route will be eventually stored.
+    # Respctively, is used for the storation of shortest returning route. 
     MinRoute = []
+    MinRetRoute = []
     # TempRoute will be used as a list in which routes will be stored to be examined.
     TempRoute = []
     # RouteLength corresponds to the calculated distance of a route. It is initialized as 0.
@@ -76,20 +81,16 @@ def FindShortestPath(Distances, Routes, Return):
         # so the initial set of routes stays unnafected.
         RouteCpy = Route.copy()
 
-        # Checking the case where an original or a returning route is considered.
-        if Return == True:
-            # In return scenario, depot (with a hypothetical ID 16) is the destination.
-            # So, it is removed from the list to be placed eventually last.
-            RouteCpy.remove(16)
-            # Additionally, the new origin is original route's destination. 
-            Start = RouteCpy[len(RouteCpy)-1]
-            # So, this origin is substracted from the nodes lits ('RouteCpy' list),
-            # because its position has been already found in the new path (1st).
-            RouteCpy.remove(Start)
-        else:
-            # In the case of original route, depot is always the origin.
+        # In the case of the very first route calculated, depot (with a hypothetical ID = 16) is set as route's start.
+        if RemainRoutes == TotalRoutes: 
             Start = 16
+        else:
+            # In any other case, as start is set the last node of the previous route.
+            Start = RouteCpy[len(RouteCpy)-1]
+            # This node is also removed from 'RouteCpy' becasue its position in the path has been determined.
+            RouteCpy.remove(Start)
         
+        # For the same reason, it is added in 'TempRoute' list.
         TempRoute.append(Start)
 
         # Every time a node's position in path is found, it is removed from 'RouteCpy'
@@ -131,11 +132,15 @@ def FindShortestPath(Distances, Routes, Return):
         TempRoute = []
         RouteLength = 0
 
-    # In return case, depot is finally appended in list's end as the new destination.
-    if Return == True:
-        MinRoute.append(16)
+    # When the shortest path is found, path's last node is appended in 'MinRetRoute',
+    # as all the cargo selected during this route is gathered at it.
+    # Depot is additionally included in the same list, by the time all gathered cargo
+    # will eventually end up at it.
+    MinRetRoute.append(16)
+    MinRetRoute.append(MinRoute[len(MinRoute)-1])
 
-    return MinRoute 
+    return MinRoute, MinRetRoute 
+
 
 # Function that plots routes in map.
 def PlotRoutes(Route, Longitude, Latitude, MapName):
@@ -163,7 +168,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
         # and inserting to map in GeoJson format.
         folium.GeoJson(Geometry_dec).add_to(m)
 
-        # Adding markers in route's nodes. Each marker will display load point's position in route and its ID.
+        # Adding markers in route's nodes. Each marker will display load point's ID and its position in route.
         # This if-else condition exists because the last point is not accessed through i iterator in previous
         # loop (see ln. 151 where i iterates 'Routes' until the pre-last node).
         # So, when i reaches the prelast node,
@@ -171,7 +176,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
 
             # sets the marker in it.
             folium.Marker((Latitude[Route[i]-1], Longitude[Route[i]-1]),
-                           tooltip = 'Load Point #' + str(LoadPoint) + ' | ID: ' + str(Route[i])).add_to(m)
+                           tooltip = 'ID: ' + str(Route[i]) + ' | Load Point #' + str(LoadPoint)).add_to(m)
             LoadPoint += 1
 
             # Next, checks if the last node is either a load point (original route) or depot (returning route)
@@ -180,7 +185,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
                 folium.Marker((Latitude[15],Longitude[15]), tooltip='Depot').add_to(m)
             else:
                 folium.Marker((Latitude[Route[i+1]-1], Longitude[Route[i+1]-1]), 
-                               tooltip = 'Load Point #' + str(LoadPoint) + ' | ID: ' + str(Route[i+1])).add_to(m)    
+                               tooltip = 'ID: ' + str(Route[i+1]) + ' | Load Point #' + str(LoadPoint)).add_to(m)    
                 LoadPoint += 1
         
         # A similar check is also done during the accessing of the previous nodes and especially the first one.
@@ -191,7 +196,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
                 folium.Marker((Latitude[15],Longitude[15]), tooltip='Depot').add_to(m)
             else:
                 folium.Marker((Latitude[Route[i]-1], Longitude[Route[i]-1]),
-                               tooltip = 'Load Point #' + str(LoadPoint) + ' | ID: ' + str(Route[i])).add_to(m)
+                               tooltip = 'ID: ' + str(Route[i]) + ' | Load Point #' + str(LoadPoint)).add_to(m)
                 LoadPoint += 1
 
     # Finally, the map is saved as an .html archive.
@@ -201,7 +206,7 @@ def PlotRoutes(Route, Longitude, Latitude, MapName):
 
 
 ############# LOADING DATA #############
-excel = pd.read_excel('Interview_Programmers_Optisolio.xlsx')
+excel = pd.read_excel('OptimumRouting/Coordinates&Cargo.xlsx')
 IDs = excel['ID'].tolist()
 Latitude = excel['Latitude'].tolist()
 Longitude = excel['Longitude'].tolist()
@@ -247,7 +252,7 @@ for rows in range(len(IDs)):
         DistAr[rows][columns] = "{:.2f}".format(float(nx.shortest_path_length(Graph, Orig_node, Dest_node, weight = 'length')))
 
 # Converting data type of array's content from 'str' to 'float64'.
-DistMat = np.array(DistAr).astype('float64')
+DistAr = np.array(DistAr).astype('float64')
 ########################################
 
 
@@ -255,77 +260,106 @@ DistMat = np.array(DistAr).astype('float64')
 ############### DAY 31/8 ###############
 # Gathering all load points IDs (the last element is the depot, so it is excluded).
 LoadPointsIDs = IDs[0:len(IDs)-1]
-# Finding all possible 'first' routes.
-Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_318)
-# Finding the shortest first original and returning route.
-FirstRoute_318 =  FindShortestPath(Distances = DistMat, Routes = Routes, Return = False)
-FirstRoute_318Ret = FindShortestPath(Distances = DistMat, Routes =  [FirstRoute_318], Return = True)
 
-# Removing all load points that have been included in the first route. 
-for item in FirstRoute_318:
-    try:
-        LoadPointsIDs.remove(item)
-    except:
-        continue
+# The minimum number of routes is the ceil of total cargo divided by vechicle's maximum capacity.
+TotalCargo = sum(Load_318)
+MaxCapacity = 50
+TotRoutes = int(np.ceil(TotalCargo/MaxCapacity))
 
-# Similarly with the first route.
-Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_318)
-SecondRoute_318 = FindShortestPath(Distances = DistMat, Routes = Routes, Return = False)
-SecondRoute_318Ret = FindShortestPath(Distances = DistMat, Routes = [SecondRoute_318], Return = True)
-########### END OF DAY 31/8 ###########
+# Initialization of 'RemainingRoutes' variable.
+RemRoutes = TotRoutes
+
+# 'OrigRoute' will store the original route during which cargo units are gathered in specific points.
+# 'RetRoute' will store the nodes includedin returning route, during cargo loading proccess.
+# Both of 'TempOrigRoute' and 'TempRetRoute' are used temporarily during the formation of 'OrigRoute' and 'RetRoute'.
+OrigRoute = []
+RetRoute = []
+TempOrigRoute = []
+TempRetRoute = []
+
+# The loop is repeated untill there are no remaining routes.
+while RemRoutes != 0:
+
+    # Calculation of all possible routes which result in maximum cargo collection.
+    Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_318)
+    # Finding the shortest of these paths.
+    TempOrigRoute, TempRetRoute = FindShortestPath(Distances = DistAr, Routes = Routes,
+                                                   RemainRoutes = RemRoutes, TotalRoutes = TotRoutes)
+
+    # New path's nodes, for both original and returning routes, are included in 
+    # the corresponding overall set of nodes calculated so far. 
+    OrigRoute += TempOrigRoute
+    RetRoute += TempRetRoute
+
+    # The IDs of nodes that have been added insets above are now excluded from 'LoadPointsIDs',
+    # as their position in route has been found. 
+    for item in OrigRoute:
+        try:
+            LoadPointsIDs.remove(item)
+        except:
+            continue
+
+    RemRoutes -= 1
+
+# Reversing returning route, as it was calculated from the end to the start.
+RetRoute = RetRoute[::-1]
+
+# Plotting routes.
+PlotRoutes(Route = OrigRoute, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/OrigRoute(31-8).html')
+PlotRoutes(Route = RetRoute, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/RetRoute(31-8).html')
+# ########### END OF DAY 31/8 ###########
 
 
 
 ############### DAY 7/9 ###############
 # Similarly with day 31/8.
+
+# Loadpoints IDs.
 LoadPointsIDs = IDs[0:len(IDs)-1]
-# First route.
-Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_79)
-FirstRoute_79 = FindShortestPath(Distances = DistMat, Routes = Routes, Return = False)
-FirstRoute_79Ret = FindShortestPath(Distances = DistMat, Routes = [FirstRoute_79], Return = True)
- 
-for item in FirstRoute_79:
-    try:
-        LoadPointsIDs.remove(item)
-    except:
-        continue
 
-# Second route.
-Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_79)
-SecondRoute_79 = FindShortestPath(Distances = DistMat, Routes = Routes, Return = False)
-SecondRoute_79Ret = FindShortestPath(Distances = DistMat, Routes = [SecondRoute_79], Return = True)
+# Minimumnumber of routes.
+TotalCargo = sum(Load_79)
+MaxCapacity = 50
+TotRoutes = int(np.ceil(TotalCargo/MaxCapacity))
 
-for item in FirstRoute_79 + SecondRoute_79:
-    try:
-        LoadPointsIDs.remove(item)
-    except:
-        continue
+# Remaining routes.
+RemRoutes = TotRoutes
 
-# Third route.
-Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_79)
-ThirdRoute_79 = FindShortestPath(Distances = DistMat, Routes = Routes, Return = False)
-ThirdRoute_79Ret = FindShortestPath(Distances = DistMat, Routes = [ThirdRoute_79], Return = True)
+# Original and returning routes.
+OrigRoute = []
+RetRoute = []
+TempOrigRoute = []
+TempRetRoute = []
+
+# The loop is repeated untill there are no remaining routes.
+while RemRoutes != 0:
+
+    # Calculation of all possible routes which result in maximum cargo collection.
+    Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_79)
+    # Finding the shortest of these paths.
+    TempOrigRoute, TempRetRoute = FindShortestPath(Distances = DistAr, Routes = Routes,
+                                                   RemainRoutes = RemRoutes, TotalRoutes = TotRoutes)
+
+    # New path's nodes, for both original and returning routes, are included in 
+    # the corresponding overall set of nodes calculated so far. 
+    OrigRoute += TempOrigRoute
+    RetRoute += TempRetRoute
+
+    # The IDs of nodes that have been added insets above are now excluded from 'LoadPointsIDs',
+    # as their position in route has been found. 
+    for item in OrigRoute:
+        try:
+            LoadPointsIDs.remove(item)
+        except:
+            continue
+
+    RemRoutes -= 1
+
+# Reversing returning route, as it was calculated from the end to the start.
+RetRoute = RetRoute[::-1]
+
+# Plotting routes.
+PlotRoutes(Route = OrigRoute, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/OrigRoute(7-9).html')
+PlotRoutes(Route = RetRoute, Longitude = Longitude, Latitude = Latitude, MapName = 'OptimumRouting/Maps/RetRoute(7-9).html')
 ########### END OF DAY 7/9 ###########
-
-
-
-######### ROUTE PLOTTING ###########
-# Routes of 31/8:
-PlotRoutes(Route = FirstRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRoute(31-8).html')
-PlotRoutes(Route = FirstRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRouteRet(31-8).html')
-PlotRoutes(Route = SecondRoute_318, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRoute(31-8).html')
-PlotRoutes(Route = SecondRoute_318Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRouteRet(31-8).html')
-
-# Routes of 7/9:
-PlotRoutes(Route = FirstRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRoute(7-9).html')
-PlotRoutes(Route = FirstRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/FirstRouteRet(7-9).html')
-PlotRoutes(Route = SecondRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRoute(7-9).html')
-PlotRoutes(Route = SecondRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/SecondRouteRet(7-9).html')
-PlotRoutes(Route = ThirdRoute_79, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/ThirdRoute(7-9).html')
-PlotRoutes(Route = ThirdRoute_79Ret, Longitude = Longitude, Latitude = Latitude, MapName = 'Maps/ThirdRouteRet(7-9).html')
-######################################
-
-# WARNING: OpenRouteService API Client often applies rate limitation in requesting procces.
-# To avoid this condition, 3 or 4 routes were plotted each time (by putting the rest in comment sections).
-
 ########### END OF SCRIPT ############
