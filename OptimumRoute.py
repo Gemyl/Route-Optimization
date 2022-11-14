@@ -26,17 +26,17 @@ def removeNaN(list):
 
 
 # Function that finds cargo points given load point's ID.
-def FindCargoUnits(CargoUnits, LoadPointsIDs):
+def FindCargoUnits(CargoUnits, IDs):
     
     res = []
-    for i in range(len(LoadPointsIDs)):
-        res.append(CargoUnits[LoadPointsIDs[i]-1])
+    for i in range(len(IDs)):
+        res.append(CargoUnits[IDs[i]-1])
 
     return res
 
 
 # Function that finds all possible routes for the maximum cargo availability.
-def FindRoutes(PointsIDs, LoadPoints):
+def FindRoutes(IDs, CargoUnits):
 
     # Target is the maximum acceptable cargo load.
     # In the case where the sum of a route's cargo load can't occur from any combination,
@@ -45,9 +45,9 @@ def FindRoutes(PointsIDs, LoadPoints):
     Target = 50
     while Target > 0:
         # Here, all the possible routes that correspond to an overal 'Target' load are calculated.
-        Routes = [list(seq) for i in range(len(PointsIDs), 0, -1)
-                    for seq in itertools.combinations(PointsIDs,i)
-                    if sum(FindCargoUnits(LoadPoints, seq)) == Target]
+        Routes = [list(seq) for i in range(len(IDs), 0, -1)
+                    for seq in itertools.combinations(IDs,i)
+                    if sum(FindCargoUnits(CargoUnits, seq)) == Target]
 
         # If routes have been found for a given overal cargo load, the loop breeaks
         # and the function returns these routes.
@@ -281,7 +281,7 @@ TempRetRoute = []
 while RemRoutes != 0:
 
     # Calculation of all possible routes which result in maximum cargo collection.
-    Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_318)
+    Routes = FindRoutes(IDs = LoadPointsIDs, CargoUnits = Load_318)
     # Finding the shortest of these paths.
     TempOrigRoute, TempRetRoute = FindShortestPath(Distances = DistAr, Routes = Routes,
                                                    RemainRoutes = RemRoutes, TotalRoutes = TotRoutes)
@@ -335,7 +335,7 @@ TempRetRoute = []
 while RemRoutes != 0:
 
     # Calculation of all possible routes which result in maximum cargo collection.
-    Routes = FindRoutes(PointsIDs = LoadPointsIDs, LoadPoints = Load_79)
+    Routes = FindRoutes(IDs = LoadPointsIDs, CargoUnits = Load_79)
     # Finding the shortest of these paths.
     TempOrigRoute, TempRetRoute = FindShortestPath(Distances = DistAr, Routes = Routes,
                                                    RemainRoutes = RemRoutes, TotalRoutes = TotRoutes)
