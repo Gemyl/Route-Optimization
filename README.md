@@ -3,11 +3,14 @@
 ## Objective
 #### This project aims to find the optimum, in terms of driving distance, route for a vechicle which collects specific cargo units from different load points in the city of Heraklion, Greece.
 
+
 ## Parameters
 #### The vechicle has a limited cargo capacity of 50 units. Having a depot as start, it is called to collect cargo units through different load points. It is only allowed to load the whole (and not a portion) point's cargo, but there is the option of transfering of units from one node to another. So, they can be gathered in specific spots and be loaded in the vechicle after it has passed through all loading points. Regarding loading points, it must be noted that they do not only provide different units with each other, but also their own cargo changes chronically.  
 
+
 ## Given Data
 #### A set of loading points' coordinates and their cargo units in two different days is given in `.xlsx` file.
+
 
 ## Python Code
 #### Python code has been developed to find both the minimum number of routes and the minimum length of those and plot them in Herklion's map figure. The algorithm that was used to find the optimum routes is Dijkstra's Algorithm. The packages that have been used are enlisted below:
@@ -36,6 +39,7 @@ pip install osmnx
 ### 3. itertools
 #### `itertools` package is a set of tools that provides useful iteration and algebra functions such as `count()` or `map()`. There is no need of manual installation as it comes pre-installed in `Python` environment. For more information about this package, see its documentation [here](https://docs.python.org/3/library/itertools.html).
 
+
 ### 4. netowrkx
 #### The networkx library is related to the analysis and manipulation of complex networks attributes and characteristics. For more information, follow this [link](https://pypi.org/project/networkx/).
 
@@ -48,7 +52,7 @@ pip install networkx
 ### 5. folium
 `folium` package provides its users with the posibility of manipulating and visualizing data with the utilization of `leaflet.js` library's mapping dynamics. For package's documentation, click [here](https://python-visualization.github.io/folium/#:~:text=folium%20makes%20it%20easy%20to,as%20markers%20on%20the%20map.).
 
-Installation using  `pip:
+Installation using  `pip`:
 ```
 pip install folium
 ```
@@ -71,5 +75,6 @@ Installation using `pip`:
 pip install numpy
 ```
 
+
 ## Results
-The optimum routes for the gathering and the loading of cargo units for two different days is presented in `html` archives in **OptimumRouting/Maps** folder. The two out of four map plots refer to the original (depot to load points) and returning (load points to depot) route on 31/8 and the rest of them on 7/9.
+The optimum routes for the gathering and the loading of cargo units for two different days is presented in `html` archives in **Maps** folder. The two out of four map plots refer to routes (original and returning) on 31/8 and the rest of them to the corresponding routes on 7/9.
