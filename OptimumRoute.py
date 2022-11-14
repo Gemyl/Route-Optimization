@@ -14,7 +14,7 @@ import folium
 
 ############# FUNCTIONS ################
 # Function that removes NaN-valued items from list.
-def removeNaN(list):
+def removeNaN(List):
     
     New_list = []
 
