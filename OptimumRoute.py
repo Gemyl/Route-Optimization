@@ -317,7 +317,7 @@ PlotRoutes(Route = RetRoute, Longitude = Longitude, Latitude = Latitude, MapName
 # Loadpoints IDs.
 LoadPointsIDs = IDs[0:len(IDs)-1]
 
-# Minimumnumber of routes.
+# Minimum number of routes.
 TotalCargo = sum(Load_79)
 MaxCapacity = 50
 TotRoutes = int(np.ceil(TotalCargo/MaxCapacity))
