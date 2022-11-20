@@ -79,4 +79,4 @@ pip install numpy
 ## Results
 The optimum routes for the gathering and the loading of cargo units for two different days is presented in `html` archives in **Maps** folder. The two out of four map plots refer to routes (original and returning) on 31/8 and the rest of them to the corresponding routes on 7/9.
 
-![Screenshot](MapScreenshot.png)
+![My Image](MapScreenshot.png)
