@@ -78,8 +78,8 @@ pip install numpy
 
 ## Results
 Optimum routes for both days are plotted in `html` files in **Maps** folder. Each day corresponds to 2 different routes:
-. Original route, which represents the driving course of the vechicle in order to transfer cargo units from one point to another.
-. Returning route, which occurs after the vechicle has gone through all loading points and starts to transfer cargo units from loading points to depot.
+- Original route, which represents the driving course of the vechicle in order to transfer cargo units from one point to another.
+- Returning route, which occurs after the vechicle has gone through all loading points and starts to transfer cargo units from loading points to depot.
 
 For instance, the original route of the first day is displayed in the image below. Each loading point is represented by a marker, in which point's ID and position in transfering/loading proccess are shown.
 
