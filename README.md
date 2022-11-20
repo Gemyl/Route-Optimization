@@ -1,5 +1,11 @@
 # Route Optimization
 
+## Repository's Contents
+#### - Maps: Folder with the illustration of optimum routes in map.
+     - Screenshots: Folder with screenshots of optimum routes' map plotting.
+     - Links: Useful links to related websites and repositories.
+     - OptimumRouting.py: Python code that implements optimum route searching.
+     - Dependencies: File with all Python site packages that have been used.
 ## Objective
 #### This project aims to find the optimum, in terms of driving distance, route for a vechicle which collects specific cargo units from different load points in the city of Heraklion, Greece.
 
