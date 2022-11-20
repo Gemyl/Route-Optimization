@@ -87,4 +87,6 @@ For instance, the original route of the first day is displayed in the image belo
 | :--: |
 | *1st Day's Original Route* |
 
-
+| ![ alt text for screen readers](MapScreenshot2.png "Text to show on mouseover") |
+| :--: |
+| *1st Day's Returning Route* |
