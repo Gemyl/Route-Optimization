@@ -81,7 +81,7 @@ Optimum routes for both days are plotted in `html` files in **Maps** folder. Eac
 - Original route, which represents the driving course of the vechicle from depot to loading points.
 - Returning route, which occurs after the vechicle has gone through all loading points and starts transfering cargo units back to depot.
 
-For instance, the original route of the first day is displayed in the image below. Each loading point is represented by a marker, in which point's ID and position within the route (1st, 2nd, etc.) are shown.
+For instance, the original route of the first day is displayed in the image below. Each loading point is represented by a marker, in which each point's ID and position within the route (1st, 2nd, etc.) are shown.
 
 | ![ alt text for screen readers](MapScreenshot.png "Text to show on mouseover") |
 | :--: |
