@@ -83,4 +83,8 @@ Optimum routes for both days are plotted in `html` files in **Maps** folder. Eac
 
 For instance, the original route of the first day is displayed in the image below. Each loading point is represented by a marker, in which point's ID and position within the route (1st, 2nd, etc.) are shown.
 
-![ alt text for screen readers](MapScreenshot.png "Text to show on mouseover")
+| ![ alt text for screen readers](MapScreenshot.png "Text to show on mouseover") |
+| :--: |
+| *1st Day's Original Route* |
+
+
