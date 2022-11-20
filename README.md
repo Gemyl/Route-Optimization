@@ -5,7 +5,7 @@
 
 
 ## Parameters
-#### The vechicle has a limited cargo capacity of 50 units. Having a depot as start, it is called to collect cargo units through different load points. It is only allowed to load the whole (and not a portion) point's cargo, but there is the option of transfering of units from one node to another. So, they can be gathered in specific spots and be loaded in the vechicle after it has passed through all loading points. Regarding loading points, it must be noted that they do not only provide different units with each other, but also their own cargo changes chronically.  
+#### The vechicle has a limited cargo capacity of 50 units. Having a depot as start, it is called to collect cargo units through different load points. It is only allowed to load the whole (and not a portion) point's cargo, but there is the option of transfering of units from one point to another. So, they can be gathered in specific spots and be loaded in the vechicle after it has passed through all loading points. Regarding loading points, it must be noted that they do not only provide different units between each other, but also their own cargo changes chronically.  
 
 
 ## Given Data
